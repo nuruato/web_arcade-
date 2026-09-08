@@ -6,7 +6,34 @@
     <title>Unity Web Player | Zombie Outbreak: 3D FPS Survival</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-  </head>
+  
+    <style>
+      html, body {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        background: #0a0c10 !important;
+      }
+      #unity-container {
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+      }
+      #unity-canvas {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+      }
+      #unity-footer {
+        display: none !important;
+      }
+    </style>
+    
+</head>
   <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>

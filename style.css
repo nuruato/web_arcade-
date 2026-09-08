@@ -210,8 +210,8 @@ body {
   transition: all 0.3s ease;
 }
 
-.game-modal.hidden {
-  display: none;
+.game-modal.hidden, .hidden {
+  display: none !important;
 }
 
 .game-modal-header {
@@ -274,27 +274,37 @@ body {
 .game-frame-container {
   position: relative;
   width: 100%;
-  height: 650px;
+  height: 720px;
   background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 
 .game-frame-container iframe {
   width: 100%;
   height: 100%;
   border: none;
+  display: block;
 }
 
 .game-frame-container iframe.hidden {
-  display: none;
+  display: none !important;
 }
 
 .game-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  padding: 3rem;
+  padding: 2rem;
   max-width: 550px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 8px;
+}
+
+.game-placeholder.hidden {
+  display: none !important;
 }
 
 .spinner {

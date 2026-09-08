@@ -70,34 +70,18 @@ function launchGame(gameId) {
 
   title.textContent = game.title;
   modal.classList.remove("hidden");
-
-  // Scroll to player smoothly
   modal.scrollIntoView({ behavior: "smooth", block: "center" });
 
-  // Test if index.html exists
-  fetch(game.url, { method: "HEAD" })
-    .then(response => {
-      if (response.ok) {
-        iframe.src = game.url;
-        iframe.classList.remove("hidden");
-        placeholder.classList.add("hidden");
-      } else {
-        showBuildPendingNotice();
-      }
-    })
-    .catch(() => {
-      showBuildPendingNotice();
-    });
-}
-
-function showBuildPendingNotice() {
-  const iframe = document.getElementById("game-iframe");
-  const placeholder = document.getElementById("game-placeholder");
-  iframe.classList.add("hidden");
+  // Show placeholder while game iframe loads
   placeholder.classList.remove("hidden");
-  document.getElementById("placeholder-notice").innerHTML = 
-    `Game build folder is ready at <code>web_arcade/games/zombie-fps/</code>.<br><br>` +
-    `To populate it: In Unity Editor, click <strong>FPS Zombie Game &gt; Build WebGL (For Web and Upload)</strong>.`;
+  iframe.classList.add("hidden");
+
+  iframe.onload = () => {
+    placeholder.classList.add("hidden");
+    iframe.classList.remove("hidden");
+  };
+
+  iframe.src = game.url;
 }
 
 function closeGameModal() {
