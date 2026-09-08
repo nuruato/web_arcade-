@@ -1,13 +1,15 @@
-﻿@echo off
+@echo off
 title Publish Arcade to GitHub
 echo ========================================================
 echo   Pushing Web Arcade to https://github.com/nuruato/web_arcade-
 echo ========================================================
 echo.
 echo If a browser window opens, click 'Sign in with your browser' or 'Authorize'.
+echo Staging and committing changes...
+git add .
+git commit -m "Update game build and arcade"
 echo.
 git push -u origin main
-echo.
 if %ERRORLEVEL% EQU 0 (
     echo ========================================================
     echo   SUCCESS! Your files are uploaded to GitHub!

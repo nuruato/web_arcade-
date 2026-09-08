@@ -153,10 +153,29 @@
                   unityInstance.SetFullscreen(1);
                 };
 
+                // Focus canvas and window immediately
+                window.focus();
+                canvas.focus();
+
+                canvas.addEventListener("click", () => {
+                  window.focus();
+                  canvas.focus();
+                });
               }).catch((message) => {
                 alert(message);
               });
             };
+
+      canvas.addEventListener("mousedown", () => {
+        window.focus();
+        canvas.focus();
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
+          e.preventDefault();
+        }
+      }, false);
 
       document.body.appendChild(script);
 

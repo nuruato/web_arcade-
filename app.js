@@ -79,6 +79,10 @@ function launchGame(gameId) {
   iframe.onload = () => {
     placeholder.classList.add("hidden");
     iframe.classList.remove("hidden");
+    iframe.focus();
+    try {
+      iframe.contentWindow.focus();
+    } catch(e) {}
   };
 
   iframe.src = game.url;
