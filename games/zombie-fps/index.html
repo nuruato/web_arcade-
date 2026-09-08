@@ -8,10 +8,8 @@
     <meta http-equiv="Expires" content="0" />
     <title>Unity Web Player | Zombie Outbreak</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css?v=3.0">
+    <link rel="stylesheet" href="TemplateData/style.css?v=4.0">
   
-    
-
     <style>
       html, body {
         width: 100% !important;
@@ -38,7 +36,6 @@
         display: none !important;
       }
     </style>
-
 </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -153,7 +150,7 @@
                   unityInstance.SetFullscreen(1);
                 };
 
-                // Focus canvas and window immediately
+                // Focus canvas and window immediately so WASD registers instantly
                 window.focus();
                 canvas.focus();
 
