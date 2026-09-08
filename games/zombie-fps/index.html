@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity Web Player | com.unity.template.urp-blank</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>Unity Web Player | Zombie Outbreak</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css?v=4.0">
-  
     <style>
       html, body {
         width: 100% !important;
@@ -133,6 +133,7 @@
 
 
       } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
         canvas.style.width = "100%";
         canvas.style.height = "100%";
       }
@@ -150,29 +151,20 @@
                   unityInstance.SetFullscreen(1);
                 };
 
-                // Focus canvas and window immediately so WASD registers instantly
+              
                 window.focus();
                 canvas.focus();
-
-                canvas.addEventListener("click", () => {
-                  window.focus();
-                  canvas.focus();
-                });
+                canvas.addEventListener('click', () => { window.focus(); canvas.focus(); });
+                canvas.addEventListener('mousedown', () => { window.focus(); canvas.focus(); });
+                window.addEventListener('keydown', (e) => {
+                  if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].indexOf(e.code) > -1) {
+                    e.preventDefault();
+                  }
+                }, false);
               }).catch((message) => {
                 alert(message);
               });
             };
-
-      canvas.addEventListener("mousedown", () => {
-        window.focus();
-        canvas.focus();
-      });
-
-      window.addEventListener("keydown", (e) => {
-        if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
-          e.preventDefault();
-        }
-      }, false);
 
       document.body.appendChild(script);
 
