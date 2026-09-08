@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arcade Vault - 3D Web Games</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon">⚡</span>
+      <span class="logo-text">ARCADE<strong>VAULT</strong></span>
+    </div>
+    <nav class="nav-links">
+      <a href="#games" class="nav-link active">All Games</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#how-to-add" class="nav-link highlight">+ Add Game</a>
+    </nav>
+  </header>
+
+  <!-- Hero Featured Banner -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="badge-featured">FEATURED GAME • PLAYABLE NOW</div>
+      <h1 class="hero-title">ZOMBIE OUTBREAK:<br><span class="highlight-text">3D FPS SURVIVAL</span></h1>
+      <p class="hero-description">
+        Grab your assault rifle, hold your ground against relentless wandering zombies, and survive escalating waves in full 3D inside your browser. No downloads required.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="launchGame('zombie-fps')">
+          <span class="btn-icon">▶</span> PLAY NOW
+        </button>
+        <a href="#how-to-add" class="btn btn-secondary">
+          <span>⚙</span> How to Add More Games
+        </a>
+      </div>
+      <div class="controls-pill">
+        <span>🎮 Controls: <strong>WASD</strong> Move &bull; <strong>Mouse</strong> Aim &bull; <strong>Left Click</strong> Shoot &bull; <strong>R</strong> Reload &bull; <strong>Shift</strong> Sprint</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Active Game Player Modal / View -->
+  <div id="game-modal" class="game-modal hidden">
+    <div class="game-modal-header">
+      <div class="game-modal-info">
+        <h2 id="modal-game-title">Zombie Outbreak: 3D FPS Survival</h2>
+        <span class="badge-tag">WebGL 3D</span>
+      </div>
+      <div class="game-modal-controls">
+        <button class="modal-btn" onclick="toggleFullscreen()" title="Fullscreen">⛶ Fullscreen</button>
+        <button class="modal-btn close-btn" onclick="closeGameModal()" title="Close Game">✕ Close</button>
+      </div>
+    </div>
+    
+    <div class="game-frame-container" id="game-frame-container">
+      <div id="game-placeholder" class="game-placeholder">
+        <div class="spinner"></div>
+        <h3>Loading Game...</h3>
+        <p id="placeholder-notice">Please build the WebGL project from Unity Editor: <strong>FPS Zombie Game &gt; Build WebGL</strong></p>
+      </div>
+      <iframe id="game-iframe" src="" allow="autoplay; fullscreen; gamepad" class="hidden"></iframe>
+    </div>
+
+    <div class="game-instructions-card">
+      <div class="instr-col">
+        <h4>🎯 Key Controls</h4>
+        <p><strong>WASD:</strong> Movement | <strong>Left Shift:</strong> Sprint | <strong>Space:</strong> Jump</p>
+        <p><strong>Mouse:</strong> Aim (Click inside to lock cursor) | <strong>Left Click:</strong> Fire Weapon</p>
+      </div>
+      <div class="instr-col">
+        <h4>💡 Gameplay Tips</h4>
+        <p><strong>R Key:</strong> Reload ammunition (or restart instantly after Game Over)</p>
+        <p><strong>Escape:</strong> Release mouse cursor at any time</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Games Catalog Section -->
+  <main class="main-container" id="games">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">GAME COLLECTION</h2>
+        <p class="section-subtitle">Play instantly in your browser. More games can be dropped in anytime.</p>
+      </div>
+      <div class="filter-pills" id="category-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="fps">FPS / Action</button>
+        <button class="filter-btn" data-filter="arcade">Arcade</button>
+      </div>
+    </div>
+
+    <!-- Dynamic Grid -->
+    <div class="games-grid" id="games-grid">
+      <!-- Injected via app.js -->
+    </div>
+  </main>
+
+  <!-- How to Add More Games Section -->
+  <section class="info-section" id="how-to-add">
+    <div class="info-card">
+      <h2>🚀 HOW TO ADD YOUR NEXT GAMES</h2>
+      <p>Adding more games to this arcade takes less than 2 minutes:</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Export WebGL Build</h3>
+          <p>Export your 2nd or 3rd game from Unity or any game engine as a <strong>WebGL</strong> build.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Drop into <code>games/</code></h3>
+          <p>Create a new folder inside <code>web_arcade/games/my-game/</code> and paste your build files.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>Update <code>games.json</code></h3>
+          <p>Add a 4-line entry in <code>web_arcade/games.json</code> with the title, genre, and path!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Arcade Vault &bull; Built with Unity 6 &amp; WebGL &bull; Hostable for free on GitHub Pages, Itch.io &amp; Vercel</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

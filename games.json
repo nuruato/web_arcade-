@@ -1,0 +1,32 @@
+[
+  {
+    "id": "zombie-fps",
+    "title": "Zombie Outbreak: 3D FPS",
+    "genre": "FPS / Survival",
+    "category": "fps",
+    "description": "First-person 3D zombie survival with raycast gunplay, procedural sound synthesis, and endless wave survival.",
+    "icon": "🧟",
+    "status": "playable",
+    "url": "games/zombie-fps/index.html"
+  },
+  {
+    "id": "space-striker",
+    "title": "Retro Space Striker",
+    "genre": "Arcade / Shoot Em Up",
+    "category": "arcade",
+    "description": "Fast-paced arcade bullet-hell in deep space with upgrades and boss battles.",
+    "icon": "🚀",
+    "status": "coming_soon",
+    "url": ""
+  },
+  {
+    "id": "dungeon-rogue",
+    "title": "Dungeon Crawler 3D",
+    "genre": "Action / RPG",
+    "category": "arcade",
+    "description": "Explore procedurally generated dungeons, defeat monsters, and collect legendary loot.",
+    "icon": "⚔️",
+    "status": "coming_soon",
+    "url": ""
+  }
+]
