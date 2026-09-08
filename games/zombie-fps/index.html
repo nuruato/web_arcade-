@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | Zombie Outbreak: 3D FPS Survival</title>
+    <title>Unity Web Player | com.unity.template.urp-blank</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   
+    
+
     <style>
       html, body {
         width: 100% !important;
@@ -16,12 +18,13 @@
         overflow: hidden !important;
         background: #0a0c10 !important;
       }
-      #unity-container {
+      #unity-container, #unity-container.unity-desktop {
         width: 100% !important;
         height: 100% !important;
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
+        transform: none !important;
       }
       #unity-canvas {
         width: 100% !important;
@@ -32,7 +35,7 @@
         display: none !important;
       }
     </style>
-    
+
 </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -47,7 +50,7 @@
       <div id="unity-footer">
         <div id="unity-logo-title-footer"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Zombie Outbreak: 3D FPS Survival</div>
+        <div id="unity-build-title">com.unity.template.urp-blank</div>
       </div>
     </div>
     <script>
@@ -87,7 +90,7 @@
         codeUrl: buildUrl + "/Build_WebGL.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Unity Technologies",
-        productName: "Zombie Outbreak: 3D FPS Survival",
+        productName: "com.unity.template.urp-blank",
         productVersion: "0.1.0",
         showBanner: unityShowBanner,
         // errorHandler: function(err, url, line) {
